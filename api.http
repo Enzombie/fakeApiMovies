@@ -1,0 +1,40 @@
+//para utilizar estas request es necesaria la extension REST Client
+//la cual nos permite hacer peticiones similares a las que hariamos en postman
+
+###traer todas las peliculas
+GET http://localhost:3000/movies
+
+
+###traer una pelicula por id
+GET http://localhost:3000/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+
+  
+###traer una pelicula por genero
+GET http://localhost:3000/movies?genre=Fantasy
+
+
+###agregar una pelicula 
+POST http://localhost:3000/movies
+
+Content-Type : application/json
+
+{
+    "title" : "Charlie y la fabrica de chocolate",
+    "year" : "2005",
+    "director" : "Tim Burton",
+    "duration" : 115,
+    "poster" : "https://static.wikia.nocookie.net/movienowbox197189/images/a/ad/Charlie_and_the_chocolate_factory.jpg/revision/latest?cb=20180420133321",
+    "genre": [
+        "Fantasy",
+    ],
+    "rate" : 6.6
+},
+    
+
+
+###modificar una pelicula
+PATCH http://localhost:3000/movies
+
+
+###modificar una pelicula
+PUT http://localhost:3000/movies
