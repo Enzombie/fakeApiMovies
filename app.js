@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const crypto = require('node:crypto')
-const PORT = process.env.PORT ?? 1234
+const PORT = process.env.PORT ?? 3000
 const movies = require('./movies.json')
-const z = require('zod')
+const {validateMovie} = require('./schemas/movies.js')
 
 app.use(express.json()) //esta utilidad es para recibir elementos del req correctamente
 app.disable('x-powered-by')
@@ -30,25 +30,15 @@ app.get('/movies/:id', (req, res) => {
 
 app.post('/movies', (req, res) => {
 
-    const {
-        title,
-        year,
-        director,
-        duration,
-        poster,
-        genre,
-        rate
-    } = req.body
+    const result = validateMovie(req.body)
 
+    if(result.error) {
+        return res.status(400).json({
+            message: JSON.parse(result.error.message)})
+    }
     const newMovie = {
         id: crypto.randomUUID(),
-        title,
-        year,
-        director,
-        duration,
-        poster,
-        genre,
-        rate
+        ...result.data
     }
     //esto no seria rest, al estar guardando el estado de la app en memoria
     movies.push(newMovie)
