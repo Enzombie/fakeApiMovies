@@ -2,7 +2,7 @@
 //la cual nos permite hacer peticiones similares a las que hariamos en postman
 
 ###traer todas las peliculas
-GET http://localhost:3000/movies
+GET http://localhost:1234/movies
 
 
 ###traer una pelicula por id
@@ -14,21 +14,18 @@ GET http://localhost:3000/movies?genre=Fantasy
 
 
 ###agregar una pelicula 
-POST http://localhost:3000/movies
-
-Content-Type : application/json
+POST http://localhost:1234/movies
+Content-Type: application/json
 
 {
     "title" : "Charlie y la fabrica de chocolate",
-    "year" : "2005",
+    "year" : 2005,
     "director" : "Tim Burton",
     "duration" : 115,
     "poster" : "https://static.wikia.nocookie.net/movienowbox197189/images/a/ad/Charlie_and_the_chocolate_factory.jpg/revision/latest?cb=20180420133321",
-    "genre": [
-        "Fantasy",
-    ],
+    "genre": ["Fantasy"],
     "rate" : 6.6
-},
+}
     
 
 
