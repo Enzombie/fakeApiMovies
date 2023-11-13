@@ -22,5 +22,8 @@ function validateMovie(object){
     //de esa manera mediante un try catch o un if puedo manejar de manera mas comoda los errores
     return movieSchema.safeParse(object)
 }
+function validateParcialMovie(object){
+    return movieSchema.partial().safeParse(object)
+}
 
-module.exports = {validateMovie}
+module.exports = {validateMovie, validateParcialMovie}
