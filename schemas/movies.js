@@ -1,4 +1,4 @@
-const z = require('zod')
+import z from 'zod'
 
 const movieSchema = z.object({
     title: z.string({
@@ -17,13 +17,11 @@ const movieSchema = z.object({
     ).array(), 
 })
 
-function validateMovie(object){
+export function validateMovie(object){
     //safeParse nos devuelve un objeto result, con un error, o con datos,
     //de esa manera mediante un try catch o un if puedo manejar de manera mas comoda los errores
     return movieSchema.safeParse(object)
 }
-function validateParcialMovie(object){
+export function validateParcialMovie(object){
     return movieSchema.partial().safeParse(object)
 }
-
-module.exports = {validateMovie, validateParcialMovie}

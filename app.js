@@ -1,11 +1,15 @@
-const express = require('express')
-const app = express()
-const crypto = require('node:crypto')
+import express, { json } from 'express'
+import { randomUUID } from 'node:crypto'
+import { validateMovie, validateParcialMovie } from './schemas/movies.js'
 const PORT = process.env.PORT ?? 3000
-const movies = require('./movies.json')
-const {validateMovie, validateParcialMovie} = require('./schemas/movies.js')
+const app = express()
 
-app.use(express.json()) //esta utilidad es para recibir elementos del req correctamente
+//leer un json en ESModules
+import { createRequire } from 'node:module'
+const require = createRequire(import.meta.url)
+const movies = require('./movies.json')
+
+app.use(json()) //esta utilidad es para recibir elementos del req correctamente
 app.disable('x-powered-by')
 
 app.get('/movies', (req, res) => {
@@ -37,7 +41,7 @@ app.post('/movies', (req, res) => {
             message: JSON.parse(result.error.message)})
     }
     const newMovie = {
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         ...result.data
     }
     //esto no seria rest, al estar guardando el estado de la app en memoria
