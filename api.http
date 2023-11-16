@@ -52,3 +52,5 @@ Content-Type: application/json
     "genre": ["Fantasy"],
     "rate" : 10
 }
+
+DELETE http://localhost:3000/movies/:id
