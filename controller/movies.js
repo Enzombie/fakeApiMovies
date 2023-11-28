@@ -1,4 +1,5 @@
-import { MovieModel } from '../models/movie.js'
+//import { MovieModel } from '../models/localFileSystem/movie.js'
+import { MovieModel } from '../models/mongoDB/movie.js'
 import { validateMovie, validateParcialMovie } from '../schemas/movies.js'
 
 export class MovieController{
@@ -36,7 +37,7 @@ export class MovieController{
         }
       
         const { id } = req.params
-        const updateMovie = await MovieModel.update({ id: id , input: result.data })
+        const updateMovie = await MovieModel.update({ id , input: result.data })
         
         return res.json(updateMovie)
     }
