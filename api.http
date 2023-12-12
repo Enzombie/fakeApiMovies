@@ -6,11 +6,11 @@ GET http://localhost:3000/movies
 
 
 ###traer una pelicula por id
-GET http://localhost:3000/movies/241bf55d-b649-4109-af7c-0e6890ded3fc
+GET http://localhost:3000/movies/fd6f5831-96ec-11ee-8f3c-0a0027000006
 
   
 ###traer una pelicula por genero
-GET http://localhost:3000/movies?genre=Fantasy
+GET http://localhost:3000/movies?genre=ACTION
 
 
 ###agregar una pelicula 
@@ -18,19 +18,19 @@ POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
-    "title" : "Charlie y la fabrica de chocolate",
-    "year" : 2005,
-    "director" : "Tim Burton",
-    "duration" : 115,
-    "poster" : "https://static.wikia.nocookie.net/movienowbox197189/images/a/ad/Charlie_and_the_chocolate_factory.jpg/revision/latest?cb=20180420133321",
-    "genre": ["Fantasy"],
-    "rate" : 6.6
-}
+   "title": "Gladiator",
+    "year": 2000,
+    "director": "Ridley Scott",
+    "duration": 155,
+    "poster": "https://img.fruugo.com/product/0/60/14417600_max.jpg",
+    "genre": ["Action", "Adventure", "Drama"],
+    "rate": 8.5
+  }
     
 
 
 ###modificar parcialmente una pelicula
-PATCH http://localhost:3000/movies/69bcbad1-2ffd-496f-a661-6f19dae63425
+PATCH http://localhost:3000/movies/99cb0b8b-9909-11ee-8f3c-0a0027000006
 Content-Type: application/json
 
 {
@@ -40,7 +40,7 @@ Content-Type: application/json
 
 
 ###modificar totalmente una pelicula
-PUT http://localhost:3000/movies/d4358afa-a947-49fa-afe4-69ef13aab7e4
+PUT http://localhost:3000/movies/99cb0b8b-9909-11ee-8f3c-0a0027000006
 Content-Type: application/json
 
 {
@@ -50,7 +50,9 @@ Content-Type: application/json
     "duration" : 120,
     "poster" : "https://static.wikia.nocookie.net/movienowbox197189/images/a/ad/Charlie_and_the_chocolate_factory.jpg/revision/latest?cb=20180420133321",
     "genre": ["Fantasy"],
-    "rate" : 10
+    "rate" : 9
 }
 
+
+###
 DELETE http://localhost:3000/movies/:id
