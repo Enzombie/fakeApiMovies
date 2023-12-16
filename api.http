@@ -6,7 +6,7 @@ GET http://localhost:3000/movies
 
 
 ###traer una pelicula por id
-GET http://localhost:3000/movies/fd6f5831-96ec-11ee-8f3c-0a0027000006
+GET http://localhost:3000/movies/6556d6859ef4868e782a9975
 
   
 ###traer una pelicula por genero
