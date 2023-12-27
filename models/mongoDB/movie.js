@@ -3,16 +3,32 @@ import { Movies } from '../../schemas/mongoDB/movieSchema.js'
 
 export class MovieModel {
     static async getAll ({ genre }) {
-        if (genre) {
-            const filterMovies = await Movies.find({ genre: [genre] })
-            return filterMovies
+        try {
+            if (genre) {
+                const genrePascalCase = `^${genre}$`
+                const filterMovies = await Movies.find({ genre: {$regex: genrePascalCase, $options:'i'}})
+                return filterMovies
+            }
+            return await Movies.find()
+        } catch (error) {
+            return { 
+                message: 'An error occurred while fetching the movies.',
+                error: error.message 
+            }
         }
-        return await Movies.find()
     }
 
     static async getById ({ id }) {
-        const movie = await Movies.findOne({ _id: id })
-        return movie
+        
+        try {
+            const movie = await Movies.findOne({ _id: id })
+            return movie
+        } catch (error) {
+            return { 
+                message: 'An error occurred while fetching the movie, incorrect ID?',
+                error: error.message 
+            }
+        }
     }
 
     static async create ({ input }){
@@ -26,17 +42,19 @@ export class MovieModel {
     }
 
     static async update ({ id, input }){
-        //todo: si pongo mal el id revienta todo
-        const movie = await Movies.findOne({ _id : id})
+        try {
+            const movie = await Movies.findOne({ _id : id})
 
-        if (!movie) {
-          return { error: 'movie id not found' }
+            Object.assign(movie, input)
+            await movie.save()
+
+            return movie
+        } catch (error) {
+            return { 
+                message: 'An error occurred while fetching the movie, incorrect ID?',
+                error: error.message 
+            }
         }
-
-        Object.assign(movie, input)
-        await movie.save()
-
-        return movie
     }
 
     static async parcialUpdate ({ id, input }){

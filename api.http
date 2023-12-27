@@ -10,7 +10,7 @@ GET http://localhost:3000/movies/6556d6859ef4868e782a9975
 
   
 ###traer una pelicula por genero
-GET http://localhost:3000/movies?genre=ACTION
+GET http://localhost:3000/movies?genre=sci-Fi
 
 
 ###agregar una pelicula 
@@ -30,27 +30,31 @@ Content-Type: application/json
 
 
 ###modificar parcialmente una pelicula
-PATCH http://localhost:3000/movies/99cb0b8b-9909-11ee-8f3c-0a0027000006
+PATCH http://localhost:3000/movies/6556d6859ef4868e782a997c
 Content-Type: application/json
 
 {
-    "title" : "Charlie y la fabrica de esclavos",
-    "year" : 2020
+    "title" : "Jurassic Park 5",
+    "year" : 1994
 }
 
 
 ###modificar totalmente una pelicula
-PUT http://localhost:3000/movies/99cb0b8b-9909-11ee-8f3c-0a0027000006
+PUT http://localhost:3000/movies/6556d6859ef4868e782a997c
 Content-Type: application/json
 
 {
-    "title" : "Charlie y la fabrica de Nesquik",
-    "year" : 2005,
-    "director" : "Tim Bartan",
-    "duration" : 120,
-    "poster" : "https://static.wikia.nocookie.net/movienowbox197189/images/a/ad/Charlie_and_the_chocolate_factory.jpg/revision/latest?cb=20180420133321",
-    "genre": ["Fantasy"],
-    "rate" : 9
+    "title": "Jurassic Park",
+    "year": 1993,
+    "director": "Steven Spielberg",
+    "duration": 127,
+    "poster": "https://vice-press.com/cdn/shop/products/Jurassic-Park-Editions-poster-florey.jpg?v=1654518755&width=1024",
+    "genre": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "rate": 8.1
 }
 
 
