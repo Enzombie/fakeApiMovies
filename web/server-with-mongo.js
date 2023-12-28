@@ -6,7 +6,7 @@ config()
 
 ;( async () => {
     try {
-        await mongoose.connect(process.env.MONGO_CONNECT_URI)
+        await mongoose.connect(process.env.MONGODB_URI)
         console.log("Connected to mongoose successfully")
     } catch (error) {
         console.log("Connect failed: " + error.message)
