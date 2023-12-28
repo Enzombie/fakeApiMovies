@@ -5,9 +5,7 @@ export const createApp = ({MovieModel}) => {
 
   const app = express()
   
-  //mongoose.connect('mongodb+srv://Henso:miprimerapp@miapp.u8aovzq.mongodb.net/apiMovies?retryWrites=true&w=majority')
-  
-  app.use(json()) // esta utilidad es para recibir elementos del req correctamente
+  app.use(json())
   app.disable('x-powered-by')
   
   app.use('/movies', createMovieRouter({MovieModel : MovieModel}))

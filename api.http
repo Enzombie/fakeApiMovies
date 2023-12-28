@@ -18,13 +18,17 @@ POST http://localhost:3000/movies
 Content-Type: application/json
 
 {
-   "title": "Gladiator",
-    "year": 2000,
-    "director": "Ridley Scott",
-    "duration": 155,
-    "poster": "https://img.fruugo.com/product/0/60/14417600_max.jpg",
-    "genre": ["Action", "Adventure", "Drama"],
-    "rate": 8.5
+   "title": "Jurassic Park",
+    "year": 1993,
+    "director": "Steven Spielberg",
+    "duration": 127,
+    "poster": "https://vice-press.com/cdn/shop/products/Jurassic-Park-Editions-poster-florey.jpg?v=1654518755&width=1024",
+    "genre": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "rate": 8.1
   }
     
 
@@ -59,4 +63,4 @@ Content-Type: application/json
 
 
 ###
-DELETE http://localhost:3000/movies/:id
+DELETE http://localhost:3000/movies/6556d6859ef4868e782a997c
