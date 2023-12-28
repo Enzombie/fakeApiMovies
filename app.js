@@ -1,5 +1,5 @@
 import express, { json } from 'express'
-import { createMovieRouter } from './routes/movies.js'
+import { createMovieRouter } from './routes/movieRouter.js'
 
 export const createApp = ({MovieModel}) => {
 

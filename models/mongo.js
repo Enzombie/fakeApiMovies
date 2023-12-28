@@ -1,5 +1,5 @@
 import { randomUUID } from 'node:crypto'
-import { Movies } from '../../schemas/mongoDB/movieSchema.js'
+import { Movies } from '../schemas/movieSchemaMongo.js'
 
 export class MovieModel {
     static async getAll ({ genre }) {

@@ -3,7 +3,7 @@ import { randomUUID } from 'node:crypto'
 
 // leer un json en ESModules
 const required = createRequire(import.meta.url)
-const movies = required('../../movies.json')
+const movies = required('../movies.json')
 
 export class MovieModel {
     static async getAll ({ genre }) {

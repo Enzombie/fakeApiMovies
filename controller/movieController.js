@@ -1,4 +1,4 @@
-import { validateMovie, validateParcialMovie } from '../schemas/movies.js'
+import { validateMovie, validateParcialMovie } from '../schemas/movieSchemaZod.js'
 
 export class MovieController {
   constructor({ MovieModel}){

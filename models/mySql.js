@@ -109,21 +109,20 @@ export class MovieModel {
                 ((SELECT id FROM movie WHERE title = ?), (SELECT id FROM genre WHERE name = LOWER(?)));`,
                 [title, genre[i]])
             }
+            return {
+                title,
+                year,
+                duration,
+                director,
+                poster,
+                rate,
+                genre
+            }
         } catch (e) {
             // puede enviarle información sensible
             console.log(e.message)
             // enviar la traza a un servicio interno
             throw new Error('Error creating movie')
-        }
-        //const newMovie = await this.getById({uuid})
-        return {
-            title,
-            year,
-            duration,
-            director,
-            poster,
-            rate,
-            genre
         }
     }
 

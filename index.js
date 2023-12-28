@@ -1,8 +1,7 @@
-//este archivo es para poder correr correctamente la app en vercel y mongo
+//este archivo es para correr correctamente la app en vercel junto a mongo
 import { createApp } from "./app.js";
 import { MovieModel} from "./models/mongoDB/movie.js";
 import mongoose from 'mongoose'
 
-const mongoUri = 'mongodb+srv://Henso:miprimerapp@miapp.u8aovzq.mongodb.net/apiMovies?retryWrites=true&w=majority'
-mongoose.connect(mongoUri)
+mongoose.connect(process.env.MONGO_CONNECT_URI)
 createApp({MovieModel: MovieModel});
