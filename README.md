@@ -27,14 +27,14 @@ Puedes acceder mediante el siguiente link: **https://app-api-movies.vercel.app/*
 - `$npm run start:mongo`
 - `$npm run start:mysql`
 
-> [!IMPORTANT]
-> Ya que el proyecto no contiene el archivo .env no podrá ejecutarse con mongoDB.
+> [!NOTE]
+> Aunque no sea una buena practica decidí subir el archivo .env para que cualquiera pueda utilizar la app en su maquina.
 > Sin embargo, la app se encuentra corriendo actualmente con mongo en **https://app-api-movies.vercel.app/**
 
 ## Uso
 Puedes realizar peticiones GET, POST, PUT, PATCH, DELETE a los endpoints proporcionados para gestionar las películas.
 > [!TIP]
-> Si estas corriendo el programa de manera local, dentro se incluye un archivo api.http con todas las peticiones y diferentes ejemplos que puedes probar.
+> Si estas corriendo el programa de manera local, dentro se incluye un archivo api.http con todas las peticiones y diferentes ejemplos que puedes utilizar.
 
 ### Endpoints Disponibles
 - `GET /movies`: Obtener todas las películas.
@@ -50,13 +50,13 @@ Puedes realizar peticiones GET, POST, PUT, PATCH, DELETE a los endpoints proporc
 ````
 GET  /movies
 
-200 **retorna una lista de todas las películas**
+200 retorna una lista de todas las películas
 ````
 #### Obtener una película por su id
 ````
 GET  /movies/id
 
-200 **retorna la película solicitada con todos sus detalles**
+200 retorna la película solicitada con todos sus detalles
 
 404 "message": "Movie not found, incorrect ID?"
 ````
@@ -64,7 +64,7 @@ GET  /movies/id
 ````
 GET  /movies?genre=SCI-FI
 
-200 **retorna una lista de peliculas perteneciente al genero**
+200 retorna una lista de peliculas perteneciente al genero
 
 404 "message": "Genre not found"
 ````
@@ -94,7 +94,7 @@ Content-Type: application/json
 	"rate": 8.1
 }
 
-201 **retorna la película nueva**
+201 retorna la película nueva
 
 400 "message": **se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta**
 ````
@@ -112,7 +112,7 @@ Content-Type: application/json
 
 200  **retorna la película junto a sus cambios**
 
-400 "message": **se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta**
+400 "message": se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta
 
 404 "message": "movie id not found"
 ````
@@ -137,9 +137,9 @@ Content-Type: application/json
 	],
 	"rate": 8.1
 }
-200  **retorna la película junto a sus cambios**
+200  retorna la película junto a sus cambios
 
-400 "message": **se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta**
+400 "message": se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta
 
 404 "message": "movie id not found"
 ````
