@@ -4,6 +4,7 @@
 La aplicación es una API RESTful desarrollada en Node.js con Express que proporciona funcionalidades para gestionar una base de datos de películas. Ofrece endpoints para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre las películas y utiliza validaciones de datos con la biblioteca Zod para asegurar la integridad de los datos en las peticiones POST, PUT y PATCH.
 
 ## Características Principales
+- Arquitectura MVC y despliegue de la app.
 - Operaciones CRUD para películas mediante peticiones HTTP.
 - Validación de calidad y seguridad de los datos utilizando Zod en las peticiones POST, PUT y PATCH.
 - Inyección de dependencias para implementar tres bases de datos: local, MongoDB y MySQL.
@@ -16,7 +17,7 @@ La aplicación es una API RESTful desarrollada en Node.js con Express que propor
 - MySQL
 
 ## Implementación
-Este proyecto está implementado y actualmente se encuentra alojado en Vercel.
+Este proyecto está implementado y actualmente se encuentra alojado en Vercel utilizando mongoDB.
 Puedes acceder mediante el siguiente link: **https://app-api-movies.vercel.app/**
 ## Instalación e inicio(local)
 1. Clona este repositorio: **https://github.com/enzo-lopez/api-movies.git**
