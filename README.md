@@ -5,8 +5,8 @@ La aplicación es una API RESTful desarrollada en Node.js con Express que propor
 
 ## Características Principales
 - Operaciones CRUD para películas mediante peticiones HTTP.
-- Validación de datos utilizando Zod en las peticiones POST, PUT y PATCH.
-- Implementación de tres bases de datos: local, MongoDB y MySQL.
+- Validación de calidad y seguridad de los datos utilizando Zod en las peticiones POST, PUT y PATCH.
+- Inyección de dependencias para implementar tres bases de datos: local, MongoDB y MySQL.
 
 ## Tecnologías Utilizadas
 - Node.js
