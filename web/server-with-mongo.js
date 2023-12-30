@@ -1,8 +1,7 @@
-import {config} from 'dotenv'
-import { createApp } from "./app.js";
-import { MovieModel} from "./models/mongo.js";
+import 'dotenv/config'
+import { createApp } from "../app.js";
+import { MovieModel} from "../models/mongo.js";
 import mongoose from 'mongoose'
-config()
 
 ;( async () => {
     try {

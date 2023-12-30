@@ -12,8 +12,7 @@ export class MovieModel {
             return await Movies.find()
         } catch (error) {
             return { 
-                message: 'An error occurred while fetching the movies.',
-                error: error.message 
+                error: 'An error occurred while fetching the movies, genre not found ?'
             }
         }
     }
@@ -24,10 +23,7 @@ export class MovieModel {
             const movie = await Movies.findOne({ _id: id })
             return movie
         } catch (error) {
-            return { 
-                message: 'An error occurred while fetching the movie, incorrect ID?',
-                error: error.message 
-            }
+            return ({ error: 'An error occurred while fetching the movie, incorrect ID?' })
         }
     }
 
@@ -51,8 +47,7 @@ export class MovieModel {
             return movie
         } catch (error) {
             return { 
-                message: 'An error occurred while fetching the movie, incorrect ID?',
-                error: error.message 
+                error: 'An error occurred while fetching the movie, incorrect ID?',
             }
         }
     }
@@ -63,14 +58,13 @@ export class MovieModel {
     }
 
     static async delete ({ id }) {
-        const movie = await Movies.findOne({ _id: id })
-
-        if (!movie) {
-          return false
+        try {
+            const movie = await Movies.findOne({ _id: id })
+            await movie.deleteOne()
+            return true
+        } catch (error) {
+            return false
         }
-      
-        await movie.deleteOne()
-        return true
     }
 
 }

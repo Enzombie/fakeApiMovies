@@ -11,6 +11,9 @@ export class MovieModel {
             const filterMovies = movies.filter(
                 movie => movie.genre.some(g => g.toLowerCase() === genre.toLowerCase())
             )
+            if (filterMovies.length === 0) {
+                return { error: 'Genre not found' }
+            }
             return filterMovies
         }
         return movies
@@ -18,6 +21,9 @@ export class MovieModel {
 
     static async getById ({ id }) {
         const movie = await movies.find(movie => movie.id === id)
+        if (!movie) {
+            return ({ error: 'Movie not found, incorrect ID?' })
+          }
         return movie
     }
 
@@ -49,7 +55,7 @@ export class MovieModel {
         const indexMovie = movies.findIndex(m => m.id === id)
 
         if(indexMovie == -1){
-            return { error: 'movie not found' }
+            return { error: 'movie id not found' }
         }
         const updateMovie = {
             ...movies[indexMovie],

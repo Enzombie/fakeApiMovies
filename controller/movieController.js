@@ -7,14 +7,17 @@ export class MovieController {
   getAll = async (req, res) => {
     const { genre } = req.query // con req.query recupero 'genre'
     const movies = await this.MovieModel.getAll({ genre })
+    if(movies.error){
+      return res.status(404).json({ message: movies.error })
+    }
     res.json(movies)
   }
 
   getById = async (req, res) => {
     const { id } = req.params
     const movie = await this.MovieModel.getById({ id })
-    if (!movie) {
-      return res.status(404).json({ message: 'Movie not found' })
+    if (movie.error) {
+      return res.status(404).json({ message: movie.error })
     }
     return res.json(movie)
   }
@@ -39,7 +42,9 @@ export class MovieController {
 
     const { id } = req.params
     const updateMovie = await this.MovieModel.update({ id, input: result.data })
-
+    if(updateMovie.error){
+      return res.status(404).json({message: updateMovie.error })
+    }
     return res.json(updateMovie)
   }
 
@@ -52,7 +57,9 @@ export class MovieController {
 
     const { id } = req.params
     const updateMovie = await this.MovieModel.parcialUpdate({ id, input: result.data })
-
+    if(updateMovie.error){
+      return res.status(404).json({message: updateMovie.error })
+    }
     return res.json(updateMovie)
   }
 
@@ -62,10 +69,10 @@ export class MovieController {
     const result = await this.MovieModel.delete({ id })
 
     if (result === false) {
-      return res.status(404).json({ error: 'movie not found' })
+      return res.status(404).json({ message: 'movie id not found' })
     }
 
-    return res.json({ mesagge: 'Movie deleted successfully' })
+    return res.json({ mesagge: 'movie deleted successfully' })
   }
 
 
