@@ -9,7 +9,7 @@ const localConfig = {
     database: 'moviesdb',
 }
 
-const connection = await mysql.createConnection(process.env.DATABASE_URL)
+const connection = await mysql.createConnection(process.env.DATABASE_URL1 + process.env.DATABASE_URL2)
 
 export class MovieModel {
 
