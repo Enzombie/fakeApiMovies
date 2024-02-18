@@ -4,7 +4,7 @@
 La aplicación es una API RESTful desarrollada en Node.js con Express que proporciona funcionalidades para gestionar una base de datos de películas. Ofrece endpoints para realizar operaciones CRUD (Crear, Leer, Actualizar, Eliminar) sobre las películas y utiliza validaciones de datos con la biblioteca Zod para asegurar la integridad de los datos en las peticiones POST, PUT y PATCH.
 
 ## Características Principales
-- Arquitectura MVC y despliegue de la app.
+- Arquitectura MVC & API REST.
 - Operaciones CRUD para películas mediante peticiones HTTP.
 - Validación de calidad y seguridad de los datos utilizando Zod en las peticiones POST, PUT y PATCH.
 - Inyección de dependencias para implementar tres bases de datos: local, MongoDB y MySQL.
@@ -29,7 +29,7 @@ Puedes acceder mediante el siguiente link: **https://app-api-movies.vercel.app/*
 - `$npm run start:mysql`
 
 > [!NOTE]
-> Aunque no sea una buena practica decidí subir el archivo .env para que cualquiera pueda utilizar la app en su maquina.
+> Aunque no sea una buena practica decidí subir el archivo .env para que cualquiera pueda utilizar la app en su entorno local.
 > Sin embargo, la app se encuentra corriendo actualmente con mongo en **https://app-api-movies.vercel.app/**
 
 ## Uso
@@ -97,7 +97,7 @@ Content-Type: application/json
 
 201 retorna la película nueva
 
-400 "message": **se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta**
+400 "message": se mostrara un mensaje de acuerdo al dato se haya ingresado de manera erronea
 ````
 #### Modificar parcialmente película 
 
@@ -113,7 +113,7 @@ Content-Type: application/json
 
 200  **retorna la película junto a sus cambios**
 
-400 "message": se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta
+400 "message": se mostrara un mensaje de acuerdo al dato se haya ingresado de manera erronea
 
 404 "message": "movie id not found"
 ````
@@ -140,7 +140,7 @@ Content-Type: application/json
 }
 200  retorna la película junto a sus cambios
 
-400 "message": se mostrara un mensaje de acuerdo al dato se haya ingresado de manera incorrecta
+400 "message": se mostrara un mensaje de acuerdo al dato se haya ingresado de manera erronea
 
 404 "message": "movie id not found"
 ````
